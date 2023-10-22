@@ -30,6 +30,10 @@ for traj in data2['trajectories']:
 
 # графики для объединенных траекторий
 for traj_id, data in trajectories.items():
+    # значения, которые меньше -150 или больше 150
+    data['A'] = [val if -150 <= val <= 150 else None for val in data['A']]
+    data['B'] = [val if -150 <= val <= 150 else None for val in data['B']]
+
     plt.figure()  # новое окно для каждой траектории
     plt.plot(data['A'], label=f'Prey', color='green')
     plt.plot(data['B'], label=f'Predator', color='orange')
@@ -37,5 +41,9 @@ for traj_id, data in trajectories.items():
     plt.xlabel('Step')
     plt.ylabel('Population')
     plt.legend()
+    # верхняя и нижняя граница y
+    y_min = min(val for val in data['A'] + data['B'] if val is not None)
+    y_max = max(val for val in data['A'] + data['B'] if val is not None)
+    plt.ylim(y_min, y_max)
 
 plt.show()  # отображение окон
