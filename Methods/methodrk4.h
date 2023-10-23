@@ -3,8 +3,6 @@
 
 #include "Method.h"
 
-#define DEVIATION 0.
-
 class MethodRK4 : public Method
 {
 public:

@@ -1,7 +1,9 @@
 #include "methodrk4.h"
 
 QPair<Trajectories, Trajectories> MethodRK4::start(const LotkaVolterraEquation &eq) const {
-    std::default_random_engine gen;
+    std::mt19937 gen;
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    gen.seed(seed);
     std::normal_distribution<double> dist(0., DEVIATION);
     QPair<Trajectories, Trajectories> result;
     double dt = static_cast<double>(deltaT) / 1000;

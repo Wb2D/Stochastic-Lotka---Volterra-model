@@ -1,12 +1,16 @@
 #ifndef METHOD_H
 #define METHOD_H
 
+#include <chrono>
+#include <ctime>
 #include <random>
 #include <QtMath>
 #include <QVector>
 #include <QRandomGenerator>
 
 #include <Equation/LotkaVolterraEquation.h>
+
+#define DEVIATION 6.
 
 typedef unsigned int uint;
 typedef  QVector<QVector<double>> Trajectories;

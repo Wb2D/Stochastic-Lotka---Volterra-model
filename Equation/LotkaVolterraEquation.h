@@ -30,6 +30,9 @@ public:
         return (-g + d * A) * B;
     }
 
+    double prodA(const double &B) const { return a - b * B; }
+    double prodB(const double &A) const { return -g + d * A; }
+
     double getStartA() const { return startA; }
     double getStartB() const { return startB; }
 

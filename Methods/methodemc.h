@@ -3,8 +3,6 @@
 
 #include "Method.h"
 
-#define DEVIATION 0.
-
 class MethodEMC : public Method
 {
 public:

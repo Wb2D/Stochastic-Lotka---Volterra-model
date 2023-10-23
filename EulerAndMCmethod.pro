@@ -14,13 +14,15 @@ HEADERS += \
     Methods/method.h \
     Methods/methodemc.h \
     Methods/methodmilstein.h \
-    Methods/methodrk4.h
+    Methods/methodrk4.h \
+    Methods/methodtr.h
 
 SOURCES += \
         DataWorker/dataworker.cpp \
         Methods/methodemc.cpp \
         Methods/methodmilstein.cpp \
         Methods/methodrk4.cpp \
+        Methods/methodtr.cpp \
         main.cpp
 
 # Default rules for deployment.

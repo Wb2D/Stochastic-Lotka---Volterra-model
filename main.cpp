@@ -8,6 +8,7 @@
 #include <Methods/methodemc.h>
 #include <Methods/methodmilstein.h>
 #include <Methods/methodrk4.h>
+#include <Methods/methodtr.h>
 
 
 #define T 50000 // время в мс
@@ -36,7 +37,7 @@ int main() {
     // 0.5, 0.02, 0.3, 0.01, 40, 30 - самое адекватное, что нашел
     // или 0.8, 0.02, 0.3, 0.01, 40, 30
     LotkaVolterraEquation eq(0.8, 0.02, 0.3, 0.01, 40, 30);
-
+/*
     MethodEMC *dataEMC(new MethodEMC(T, K, M, X));
     QPair<Trajectories, Trajectories> objEMC = dataEMC->start(eq);
     DataWorker::save(PATH_1, objEMC.first);
@@ -46,6 +47,11 @@ int main() {
     QPair<Trajectories, Trajectories> objRK4 = dataRK4->start(eq);
     DataWorker::save(PATH_3, objRK4.first);
     DataWorker::save(PATH_4, objRK4.second);
+*/
+    MethodTR *dataTR(new MethodTR(T, K, M, X));
+    QPair<Trajectories, Trajectories> objTR = dataTR->start(eq);
+    DataWorker::save(PATH_5, objTR.first);
+    DataWorker::save(PATH_6, objTR.second);
 
     return 0;
 }
