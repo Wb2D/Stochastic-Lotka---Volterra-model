@@ -3,11 +3,11 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('Qt5Agg')
 
-with open('C:\\Qt\\Projects\\SDE\\build-EulerAndMCmethod-Desktop_Qt_5_12_12_MinGW_64_bit-Debug\\test1.json',
+with open('C:\\Qt\\Projects\\SDE\\build-EulerAndMCmethod-Desktop_Qt_5_12_12_MinGW_64_bit-Debug\\test3.json',
           'r') as file1:
     data1 = json.load(file1)
 
-with open('C:\\Qt\\Projects\\SDE\\build-EulerAndMCmethod-Desktop_Qt_5_12_12_MinGW_64_bit-Debug\\test2.json',
+with open('C:\\Qt\\Projects\\SDE\\build-EulerAndMCmethod-Desktop_Qt_5_12_12_MinGW_64_bit-Debug\\test4.json',
           'r') as file2:
     data2 = json.load(file2)
 
