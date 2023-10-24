@@ -1,10 +1,6 @@
-#include <iostream>
-
 #include <DataWorker/dataworker.h>
-
 #include <Equation/equation.h>
 #include <Equation/LotkaVolterraEquation.h>
-
 #include <Methods/methodemc.h>
 #include <Methods/methodmilstein.h>
 #include <Methods/methodrk4.h>
@@ -15,6 +11,7 @@
 #define K 5000 // число шагов
 #define M 3 // число траекторий
 #define X 0 // начальное значение
+#define DEVIATION 6. // стандартное отклонение
 
 #define PATH_1 "test1.json"
 #define PATH_2 "test2.json"
@@ -34,21 +31,23 @@ int main() {
      * A - популяция жертв
      * B - популяция хищников
     */
+
     // 0.5, 0.02, 0.3, 0.01, 40, 30 - самое адекватное, что нашел
     // или 0.8, 0.02, 0.3, 0.01, 40, 30
+
     LotkaVolterraEquation eq(0.8, 0.02, 0.3, 0.01, 40, 30);
-/*
-    MethodEMC *dataEMC(new MethodEMC(T, K, M, X));
+
+    MethodEMC *dataEMC(new MethodEMC(T, K, M, X, DEVIATION));
     QPair<Trajectories, Trajectories> objEMC = dataEMC->start(eq);
     DataWorker::save(PATH_1, objEMC.first);
     DataWorker::save(PATH_2, objEMC.second);
 
-    MethodRK4 *dataRK4(new MethodRK4(T, K, M, X));
+    MethodRK4 *dataRK4(new MethodRK4(T, K, M, X, DEVIATION));
     QPair<Trajectories, Trajectories> objRK4 = dataRK4->start(eq);
     DataWorker::save(PATH_3, objRK4.first);
     DataWorker::save(PATH_4, objRK4.second);
-*/
-    MethodTR *dataTR(new MethodTR(T, K, M, X));
+
+    MethodTR *dataTR(new MethodTR(T, K, M, X, DEVIATION));
     QPair<Trajectories, Trajectories> objTR = dataTR->start(eq);
     DataWorker::save(PATH_5, objTR.first);
     DataWorker::save(PATH_6, objTR.second);

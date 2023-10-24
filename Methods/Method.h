@@ -10,16 +10,14 @@
 
 #include <Equation/LotkaVolterraEquation.h>
 
-#define DEVIATION 6.
-
 typedef unsigned int uint;
 typedef  QVector<QVector<double>> Trajectories;
 
 class Method
 {
 public:
-    Method(const uint &T, const uint &k, const uint &m, const uint &X) :
-        T(T), k(k), m(m), X(X) {
+    Method(const uint &T, const uint &k, const uint &m, const uint &X, const double &dev) :
+        T(T), k(k), m(m), X(X), dev(dev) {
         deltaT = (T - X) / k;
     }
 
@@ -30,8 +28,9 @@ protected:
     uint k; // число временных шагов
     uint m; // число траекторий
     uint X; // начальное значчение Х
+    double dev; // стандартное отклонение
 
-    uint deltaT;
+    uint deltaT; // шаг
 };
 
 #endif // METHOD_H

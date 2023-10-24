@@ -1,12 +1,10 @@
 #include "methodtr.h"
 
-#include <QtDebug>
-
 QPair<Trajectories, Trajectories> MethodTR::start(const LotkaVolterraEquation &eq) const {
     std::mt19937 gen;
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    uint seed = std::chrono::system_clock::now().time_since_epoch().count();
     gen.seed(seed);
-    std::normal_distribution<double> dist(0., DEVIATION);
+    std::normal_distribution<double> dist(0., dev);
     QPair<Trajectories, Trajectories> result;
     double dt = static_cast<double>(deltaT) / 1000;
     for(uint j = 0; j < m; ++j) {
@@ -29,12 +27,3 @@ QPair<Trajectories, Trajectories> MethodTR::start(const LotkaVolterraEquation &e
     }
     return result;
 }
-
-/*
-имеются разложения следующих уравнений
-dx/dt = (a - b * y) * x
-dy/dt = (-g + d * x) * y
-на ряды тейлора имеющие вид
-f(x) = (a * v - b * y* v ) + (a - by)(x - v)
-f(y) = (-g * v + b * x * v ) + (-g + b * x)(y - v)
-*/

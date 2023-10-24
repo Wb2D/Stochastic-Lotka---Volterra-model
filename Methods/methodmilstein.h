@@ -6,8 +6,8 @@
 class MethodMilstein : public Method
 {
 public:
-    MethodMilstein(const uint &T, const uint &k, const uint &m, const uint &X) :
-        Method(T, k, m, X) {}
+    MethodMilstein(const uint &T, const uint &k, const uint &m, const uint &X, const double &dev) :
+        Method(T, k, m, X, dev) {}
 
     QPair<Trajectories, Trajectories> start(const LotkaVolterraEquation&) const override;
 };
